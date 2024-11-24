@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flor Decorada</title>
+    <title>Flor Animada</title>
     <style>
         body {
             background: linear-gradient(to bottom, #f7cac9, #92a8d1);
@@ -19,6 +19,7 @@
             position: relative;
             width: 200px;
             height: 200px;
+            animation: sway 4s infinite ease-in-out;
         }
 
         .petal {
@@ -28,6 +29,7 @@
             border-radius: 50%;
             position: absolute;
             transform-origin: bottom center;
+            animation: pulse 2s infinite ease-in-out;
         }
 
         .petal:nth-child(1) { transform: rotate(0deg) translateY(-60px); }
@@ -48,6 +50,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            animation: center-pulse 3s infinite ease-in-out;
         }
 
         .stem {
@@ -59,6 +62,7 @@
             left: 50%;
             transform: translateX(-50%);
             border-radius: 10px;
+            animation: sway 4s infinite ease-in-out;
         }
 
         .leaf {
@@ -73,12 +77,51 @@
             top: 250px;
             left: -30px;
             transform: rotate(-40deg);
+            animation: leaf-sway 3s infinite ease-in-out;
         }
 
         .leaf.right {
             top: 250px;
             right: -30px;
             transform: rotate(40deg);
+            animation: leaf-sway 3s infinite ease-in-out reverse;
+        }
+
+        /* Animaciones */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes center-pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+
+        @keyframes sway {
+            0%, 100% {
+                transform: translateX(-50%) rotate(0deg);
+            }
+            50% {
+                transform: translateX(-50%) rotate(3deg);
+            }
+        }
+
+        @keyframes leaf-sway {
+            0%, 100% {
+                transform: rotate(-40deg);
+            }
+            50% {
+                transform: rotate(-30deg);
+            }
         }
     </style>
 </head>
@@ -99,3 +142,4 @@
     </div>
 </body>
 </html>
+
